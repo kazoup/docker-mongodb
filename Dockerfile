@@ -19,7 +19,8 @@ RUN rm -rf /srv/*.tgz
 RUN mkdir -p /data/mongodb
 
 ADD supervisord.conf /etc/supervisor.conf
+ADD docker-run.sh /srv/
 
 EXPOSE 27017
 EXPOSE 22
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor.conf"]
+CMD ["/srv/docker-run.sh"]

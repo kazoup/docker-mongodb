@@ -31,4 +31,3 @@ CMD ["/sbin/my_init"]
 EXPOSE 27017
 EXPOSE 22
 
-

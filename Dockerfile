@@ -5,6 +5,11 @@ RUN apt-get upgrade -y
 
 RUN apt-get install -y wget
 
+# add the kazoup dev ssh key
+ADD id_rsa.kazoup_dev.pub /tmp/id_rsa.kazoup_dev.pub
+RUN cat /tmp/id_rsa.kazoup_dev.pub >> /root/.ssh/authorized_keys && rm -f /tmp/id_rsa.kazoup_dev.pub
+#RUN chmod 600 /root/.ssh/authorized_keys
+
 # generate a host key
 RUN /etc/my_init.d/00_regen_ssh_host_keys.sh
 

@@ -24,10 +24,11 @@ RUN mkdir -p /data/mongodb
 RUN mkdir -p /etc/service/mongodb
 ADD run-mongo.sh /etc/service/mongodb/run
 
-EXPOSE 27017
-EXPOSE 22
-CMD ["/sbin/my_init"]
-
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+CMD ["/sbin/my_init"]
+EXPOSE 27017
+EXPOSE 22
+
 

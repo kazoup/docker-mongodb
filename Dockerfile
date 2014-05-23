@@ -22,7 +22,9 @@ RUN cd /srv \
 RUN mkdir -p /data/mongodb
 
 RUN mkdir -p /etc/service/mongodb
+RUN mkdir -p /var/log/kazoup
 ADD run-mongo.sh /etc/service/mongodb/run
+ADD log-mongo.sh /etc/service/mongodb/log/run
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
